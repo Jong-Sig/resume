@@ -1,0 +1,344 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESUME
+% Updated: 06-14-2024
+%	Edited by: 2024 Jong Sig Chung
+%   Based on: 2021 Federico Tartarini
+%
+%	The MIT License (MIT)
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BASIC CONFIGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome}
+\usepackage{xcolor}
+\usepackage{pgffor} 
+\usepackage{etoolbox}
+
+% change color hyperlinks
+\hypersetup{%
+    colorlinks=true,% hyperlinks will be black
+    urlcolor=[rgb]{0.04,0,0.5},
+    urlbordercolor=[rgb]{0.7,0.7,0.7},% hyperlink borders will be gray
+    pdfborderstyle={/S/U/W 0.5}% border style will be underline of width 1pt
+}
+
+% Clear all header and footer fields
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands for items and subheadings
+\newcommand{\resumeItem}[2]{
+    \item\small{
+        \textbf{#1}{: #2}
+    }
+    \vspace{-2pt}
+}
+
+\newcommand{\resumeItemPaper}[1]{
+    \item\small{
+        {#1}
+    }
+    \vspace{-6pt}
+}
+
+\newcommand{\resumeItemPaperWithMultipleSublines}[2]{
+    \item\small{
+        {#1} \\
+        \foreach \line in {#2} {
+            \ifblank{\line}{}{%
+                -- \line \\
+            }
+        }
+    }
+    \vspace{-2pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{1pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{\small#3} & \textit{\small#4}
+    \end{tabular*}
+}
+
+\newcommand{\resumeSubheadingWithMultipleSublines}[3]{
+    \vspace{1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{#2} \\
+    \end{tabular*}
+    \foreach \line in {#3} {
+        \ifblank{\line}{}{%
+            -- \line \\
+        }
+    }
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-2pt}}
+
+\renewcommand{\labelitemi}{$\circ$} % Change bullet style to a smaller symbol
+
+% Adjust itemize environment
+\setlist[itemize,1]{leftmargin=1.2em, labelindent=0.5em}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*]\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CV STARTS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADING
+%----------------------------------------------------------------------------------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+{} & Last Updated: \today \\\\
+\textbf{\href{}{\Large Jong Sig (Sik) Chung}} 
+& Email: \href{mailto:jongsig.chung@mccombs.utexas.edu}{jongsig.chung@mccombs.utexas.edu} \\
+{McCombs School of Business, University of Texas at Austin} 
+& Data+Code
+{: \href{https://www.sik-chung.com/datasets-codes}{sik-chung.com/datasets-codes}} \\
+{}
+& \href{https://www.linkedin.com/in/jong-sig-chung}{\faLinkedin}
+\href{https://www.sik-chung.com/}{\faGoogle}
+\href{https://www.mccombs.utexas.edu/graduate/phd/academics/mgmt-phd/}{\faGraduationCap}
+\\
+\end{tabular*}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+
+\resumeSubheading
+{McCombs School of Business, The University of Texas at Austin}{Austin, TX}
+{PhD in Management (Concentration: Strategy)}{Expected 2025}
+\resumeSubheading
+{SKK Business School, Sungkyunkwan University}{Seoul, Korea}
+{MS in Management (Concentration: Strategy)}{2019}
+\resumeSubheading
+{SKK Business School, Sungkyunkwan University}{Seoul, Korea}
+{BBA in Business Administration}{2017}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH INTEREST
+%----------------------------------------------------------------------------------------
+\section{Research Interest}
+\textbf{Keywords}
+{: Strategy; Algorithm; Social Interaction; Collaboration; Platform}
+\newline{We are living through a shift in which algorithm-driven technologies are changing how humans interact, collaborate, and learn. Algorithm-assisted evaluation is reshaping the assessment of human contributions in software development by pre-screening inputs before human evaluation. Algorithmic moderators are widely deployed in online communities and platforms to guide and manage discussions and knowledge sharing among humans. In an extreme scenario, we may soon live in a world where algorithms manage and control human's social interaction and collaboration.} 
+{This sparks my curiosity about 
+(1) \textit{how algorithms shape social interaction and learning in collaboration} and 
+(2) \textit{how managers can strategically use algorithms to shape social interaction and collaboration.}}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH
+%----------------------------------------------------------------------------------------
+\section{Research}
+
+%----------WORKING PAPERS-----------------
+\textbf{Working Papers}
+\resumeItemListStart
+\resumeItemPaperWithMultipleSublines{\textbf{Chung J. S.} How Does Algorithmic Assistance Impact Human Performance? Evidence from Algorithm-Assisted Evaluation in Software Development. (Dissertation 2nd Essay)} {{Job Market Paper}}
+\resumeItemPaper{Toh, P. K., \textbf{Chung, J. S.} Algorithm Learning: Benefits of Third-Party Human-Intermediaries’ Co-Existence with Algorithm on Platforms. (Manuscript Ready)}
+\resumeItemPaperWithMultipleSublines{\textbf{Chung, J. S.}, Toh, P. K. Competitive Crowding and Complementor Participation in Platform-Based Ecosystems: A Study of the Instagram Platform. (Manuscript Ready)} {{AOM Best Paper Proceedings (STR Division), Spring 2023}}
+
+
+\resumeItemListEnd
+
+\textbf{Work-in-Progress}
+\resumeItemListStart
+\resumeItemPaperWithMultipleSublines{Polidoro, F., \textbf{Chung, J. S.} Strategies for Social Insertion into Collaboration Networks: Trade-offs Between Collaborative and Standalone Entries. (Writing and Data Analysis)} {{Runner-up, Best Proposal Award, SMS (Cooperative Strategies Interest Group), 2022}}
+\resumeItemPaper{Agarwal S., Miller C. D., \textbf{Chung J. S.} Product Abandonment in Platform. (Writing and Data Analysis)}
+\resumeItemPaper{\textbf{Chung J. S.} A Practical Approach to Unveiling New Research Dimensions in the Study of Algorithms and Collaboration. (Dissertation 1st Essay)}
+\resumeItemPaper{\textbf{Chung J. S.} Stale Innovation: How Algorithms Shape Communication Patterns in Collaborative Projects. (Dissertation 3rd Essay)}
+\resumeItemListEnd
+
+%----------------------------------------------------------------------------------------
+%	CONFERENCES, INVITED TALKS, WORKSHOPS
+%----------------------------------------------------------------------------------------
+\section{Conferences, Invited Talks, Workshops}
+
+%----------PRESENTATIONS-----------------
+\textbf{Presentations}
+\resumeItemListStart
+\resumeItemPaperWithMultipleSublines{How Does Algorithmic Assistance Impact Human Performance? Evidence from Algorithm-Assisted Evaluation in Software Development.} {{CCC Doctoral Conference 2024, St. Louis, MO.}}
+\resumeItemPaperWithMultipleSublines{Algorithm Learning: Intermediary Tradeoff and Strategic Purpose of Having Influencers on Instagram.} {{Academy of Management 2024, Chicago, IL.}}
+\resumeItemPaperWithMultipleSublines{Competition-Based Network Effect and Heterogeneity in Participation Channels within Platform-Based Ecosystems.} {{Academy of Management 2023, Boston, MA.}, {Strategic Management Society 2022, London.}, {McCombs Annual PhD Research Conference 2022, Austin, TX.}}
+\resumeItemListEnd
+
+%----------SYMPOSIA-----------------
+\textbf{Symposia}
+\resumeItemListStart
+\resumeItemPaper{Co-organizer, \textit{Predictive Technologies and Firm Innovation}. Academy of Management 2024, Chicago, IL.} 
+\resumeItemListEnd
+
+%----------WORKSHOPS-----------------
+\textbf{Workshops}
+\resumeItemListStart
+\resumeItemPaper{Academy of Management TIM Doctoral Consortium 2024. Chicago, IL.} 
+\resumeItemPaper{Academy of Management STR Dissertation Consortium 2024. Chicago, IL.} 
+\resumeItemPaper{Annual Data Workshop and Empirical Research Conference on Standardization 2022. Northwestern Center on Law, Business and Economics.} 
+\resumeItemPaper{Strategy Science Doctoral Workshop and Conference 2022. NYU Stern School of Business.} 
+\resumeItemListEnd
+
+%----------------------------------------------------------------------------------------
+%	TEACHING & RESEARCH EXPERIENCE
+%----------------------------------------------------------------------------------------
+\section{Teaching \& Research Experience}
+
+\resumeSubheading
+{McCombs School of Business, UT Austin (RA)}{2025}
+{Data Analysis (Prof. Shiva Agarwal)}{}
+\resumeSubheading
+{McCombs School of Business, UT Austin (Sole Instructor)}{2022}
+{General Management and Strategy (MAN S374)} {Instructor Ratings: 4.6/5.0}
+\resumeSubheading
+{McCombs School of Business, UT Austin (TA)}{2020-2023}
+{Strategic Management (MBA \& EMBA)}{}
+\resumeSubheading
+{SKK Business School, Sungkyunkwan University (TA)}{2017-2019}
+{Strategic Management (MBA), Corporate Entrepreneurship, Strategic Management}{}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS, GRANTS, SCHOLARSHIPS
+%----------------------------------------------------------------------------------------
+\section{Awards, Grants, Scholarships}
+
+\resumeSubheading
+{Winner, Samsung Global Research Scholarship} {2024}
+{Association of Korean Management Scholars}{}
+\resumeSubheading
+{Graduate Continuing Bruton Fellowship} {2023}
+{University of Texas at Austin}{}
+\resumeSubheading
+{Runner-up, Best Proposal Award} {2022}
+{Strategic Management Society, Cooperative Strategies Interest Group}{}
+\resumeSubheading
+{Graduate School Summer Fellowship} {2022}
+{University of Texas at Austin}{}
+\resumeSubheading
+{McCombs-Provost PhD Research Fund} {2022}
+{University of Texas at Austin}{}
+\resumeSubheading
+{Northwestern CLBE Travel Grant} {2022}
+{Northwestern University}{}
+\resumeSubheading
+{McCombs School of Business Doctoral Fellowship} {2019–Present}
+{University of Texas at Austin}{}
+\resumeSubheading
+{Graduate School Connected Scholarship} {2017–2018}
+{Sungkyunkwan University}{}
+\resumeSubheading
+{Class Aid Scholarship} {2017–2018}
+{Sungkyunkwan University}{}
+\resumeSubheading
+{Dean's List (Undergraduate)} {2016–2017}
+{Sungkyunkwan University}{}
+\resumeSubheading
+{Patriot Scholarship (Undergraduate)} {2013–2016}
+{Ministry of Patriots and Veterans Affairs, Korea}{}
+\resumeSubheading
+{Samsung Scholarship (Undergraduate)} {2011–2012}
+{Samsung Foundation, Korea}{}
+
+%----------------------------------------------------------------------------------------
+%	SERVICE
+%----------------------------------------------------------------------------------------
+\section{Service}
+
+\textbf{Reviewer}{: Strategic Management Journal, Strategic Management Society, Academy of Management}
+\\
+\textbf{Membership}{: Strategic Management Society, Academy of Management}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+
+\textbf{Programming Languages}{: Python, STATA, \LaTeX}
+\\
+\textbf{Visualization Tools}{: R, Gephi}
+\\
+\textbf{Database Management}{: MySQL, BigQuery}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+\section{References}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l}
+    \textbf{PK Toh (Chair)} & \textbf{Ram Ranganathan} \\
+    Professor & Associate Professor \\
+    McCombs School of Business & McCombs School of Business \\
+    University of Texas at Austin & University of Texas at Austin \\
+    \href{mailto:pk.toh@mccombs.utexas.edu}{pk.toh@mccombs.utexas.edu} & \href{mailto:ram.ranganathan@mccombs.utexas.edu}{ram.ranganathan@mccombs.utexas.edu} \\
+    \\
+    \textbf{Cameron Miller} & \textbf{Shiva Agarwal} \\
+    Associate Professor & Assistant Professor \\
+    Whitman School of Management & McCombs School of Business \\
+    Syracuse University & University of Texas at Austin \\
+    \href{mailto:cdmiller@syr.edu}{cdmiller@syr.edu} & 
+    \href{mailto:shiva.agarwal@mccombs.utexas.edu}{shiva.agarwal@mccombs.utexas.edu} \\
+    \\
+    \textbf{Martin Ganco} \\
+    Professor \\
+    Wisconsin School of Business \\
+    University of Wisconsin-Madison \\
+    \href{mailto:ganco@wisc.edu}{ganco@wisc.edu}
+\end{tabular*}
+
+%-------------------------------------------
+\end{document}
