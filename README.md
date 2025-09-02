@@ -1,6 +1,8 @@
 # Sik's Resume
 
-Welcome! This repository contains my resume in **LaTeX** format.  
+![Last Updated](https://img.shields.io/github/last-commit/Jong-Sig/resume)
+
+Welcome! This repository contains my resume in **PDF** and **LaTeX** formats.  
 You can also find more about me through the links below:
 
 - 🌐 [Personal Website](https://www.sik-chung.com/)
@@ -9,7 +11,13 @@ You can also find more about me through the links below:
 
 ---
 
-## How to Compile **LaTeX** file?
+## Where can I find the **PDF** file?
+
+Download the [resume.pdf](Jong-Sig/resume.pdf) here.
+
+---
+
+## How to Compile the **LaTeX** file?
 
 If you’d like to build the resume yourself:
 
@@ -19,3 +27,14 @@ git clone https://github.com/Jong-Sig/resume.git
 
 # Compile with latexmk
 latexmk -pdf resume.tex
+```
+
+> **Note:** Make sure you have `latexmk` installed. On most systems, it comes with TeX Live or MikTeX.  
+>  
+> Alternatively, you can compile using:  
+> - `pdflatex resume.tex`  
+> - `xelatex resume.tex`  
+> - `lualatex resume.tex`  
+>  
+> `latexmk` is recommended, but the others work as well.
+
