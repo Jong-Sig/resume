@@ -16,7 +16,6 @@ If you’d like to build the resume yourself:
 ```bash
 # Clone the repository
 git clone https://github.com/Jong-Sig/resume.git
-cd <repo-name>
 
 # Compile with latexmk
 latexmk -pdf resume.tex
