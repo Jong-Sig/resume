@@ -13,7 +13,7 @@ You can also find more about me through the links below:
 
 ## Where can I find the **PDF** file?
 
-Download the [resume.pdf](Jong-Sig/resume.pdf) here.
+Download the [resume.pdf](./resume.pdf) here.
 
 ---
 
