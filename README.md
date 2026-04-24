@@ -8,6 +8,7 @@ You can also find more about me through the links below:
 - 🌐 [Personal Website](https://www.sik-chung.com/)
 - 💼 [LinkedIn](https://www.linkedin.com/in/jong-sig-chung)
 - 🎓 [WSB Faculty Profile](https://business.wisc.edu/directory/profile/sik-chung/)
+- 📝 [SSRN](http://ssrn.com/author=10979808)
 
 ---
 
