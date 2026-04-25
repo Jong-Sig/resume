@@ -4,21 +4,6 @@
 %   Based on: 2021 Federico Tartarini
 %
 %	The MIT License (MIT)
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -39,22 +24,23 @@
 \usepackage{fancyhdr}
 \usepackage{fontawesome}
 \usepackage{xcolor}
-\usepackage{pgffor} 
+\usepackage{pgffor}
 \usepackage{etoolbox}
 
 % change color hyperlinks
 \hypersetup{%
-    colorlinks=true,% hyperlinks will be black
+    colorlinks=true,
     urlcolor=[rgb]{0.04,0,0.5},
-    urlbordercolor=[rgb]{0.7,0.7,0.7},% hyperlink borders will be gray
-    pdfborderstyle={/S/U/W 0.5}% border style will be underline of width 1pt
+    urlbordercolor=[rgb]{0.7,0.7,0.7},
+    pdfborderstyle={/S/U/W 0.5}
 }
 
-% Clear all header and footer fields
+% Header / footer
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\fancyfoot[R]{\footnotesize\itshape\color{gray!70}Last updated: \today}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
@@ -68,13 +54,15 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Section formatting
+% Section formatting — softer rule
 \titleformat{\section}{
     \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+}{}{0em}{}[{\color{gray!50}\titlerule}\vspace{-5pt}]
 
 %-------------------------
-% Custom commands for items and subheadings
+% Custom commands
+%-------------------------
+
 \newcommand{\resumeItem}[2]{
     \item\small{
         \textbf{#1}{: #2}
@@ -82,23 +70,23 @@
     \vspace{-2pt}
 }
 
-\newcommand{\resumeItemPaper}[1]{
-    \item\small{
-        {#1}
-    }
-    \vspace{-6pt}
+% Numbered paper references (resets per subsection via \resetPaperCounter)
+\newcounter{papercounter}
+\newcommand{\resetPaperCounter}{\setcounter{papercounter}{0}}
+
+\newcommand{\resumeItemPaper}[1]{%
+    \refstepcounter{papercounter}%
+    \vspace{4pt}\small\noindent\hangindent=2.3em\hangafter=1 [\arabic{papercounter}]\hspace{0.7em}#1\par%
 }
 
-\newcommand{\resumeItemPaperWithMultipleSublines}[2]{
-    \item\small{
-        {#1} \\
-        \foreach \line in {#2} {
-            \ifblank{\line}{}{%
-                -- \line \\
-            }
-        }
-    }
-    \vspace{-2pt}
+\newcommand{\resumeItemPaperWithMultipleSublines}[2]{%
+    \refstepcounter{papercounter}%
+    \vspace{4pt}\small\noindent\hangindent=2.3em\hangafter=1 [\arabic{papercounter}]\hspace{0.7em}#1\par%
+    \foreach \line in {#2} {%
+        \ifblank{\line}{}{%
+            \hspace*{2em}\small -- \line\par%
+        }%
+    }%
 }
 
 \newcommand{\resumeSubheading}[4]{
@@ -109,23 +97,21 @@
     \end{tabular*}
 }
 
-\newcommand{\resumeSubheadingWithMultipleSublines}[3]{
-    \vspace{1pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & \textit{#2} \\
-    \end{tabular*}
-    \foreach \line in {#3} {
-        \ifblank{\line}{}{%
-            -- \line \\
-        }
-    }
+% NEW: year on the left, venues on the right
+\newcommand{\yearVenues}[2]{%
+    \begin{tabular*}{0.97\textwidth}{@{}p{0.08\textwidth} @{\hspace{1em}}p{0.85\textwidth}@{}}
+        \textbf{\small #1} & \small #2
+    \end{tabular*}\vspace{2pt}%
+}
+
+% NEW: italicized paper title that sits above its venue list
+\newcommand{\paperTitle}[1]{%
+    \vspace{4pt}\noindent\small\textit{#1}\par\vspace{2pt}%
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-2pt}}
 
-\renewcommand{\labelitemi}{$\circ$} % Change bullet style to a smaller symbol
-
-% Adjust itemize environment
+\renewcommand{\labelitemi}{$\circ$}
 \setlist[itemize,1]{leftmargin=1.2em, labelindent=0.5em}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
@@ -144,10 +130,8 @@
 %	HEADING
 %----------------------------------------------------------------------------------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-{} & Last Updated: \today \\\\
-\textbf{\href{}{\Large Jong Sig (Sik) Chung}} 
-&  \\
-{Wisconsin School of Business, University of Wisconsin-Madison} 
+\textbf{\href{}{\Large Jong Sig (Sik) Chung}} & \\
+{Wisconsin School of Business, University of Wisconsin-Madison}
 & Email: \href{mailto:sik.chung@wisc.edu}{sik.chung[at]wisc.edu} \\
 {975 University Ave, Madison, WI 53706}
 & \href{https://www.linkedin.com/in/jong-sig-chung}{\faLinkedin}
@@ -184,12 +168,10 @@
 %	RESEARCH INTEREST
 %----------------------------------------------------------------------------------------
 \section{Research Interest}
-\textbf{Keywords}
-{: Algorithm; Human Interaction; Collaboration and Competition; Knowledge and Innovaiton; Platform Strategy}
-\newline{We are living through a shift in which algorithm-driven technologies are transforming how humans interact, collaborate, compete, and generate ideas} 
-{This raises two questions that guide my research:
-\newline(1) \textit{how do algorithms shape human interaction, collaboration, and competition?} 
-\newline(2) \textit{what does it mean to knowledge and innovation in organizations?}}
+\textbf{Keywords}{: Algorithms; Human Interaction; Collaboration and Competition; Knowledge and Innovation; Platform Strategy}
+
+\vspace{4pt}
+We are living through a shift in which algorithm-driven technologies are transforming how humans interact, collaborate, compete, and innovate. This raises two questions that guide my research: (1) \textit{how do algorithms shape human interaction, collaboration, and competition?} and (2) \textit{what does it mean for knowledge and innovation in organizations?}
 
 %----------------------------------------------------------------------------------------
 %	RESEARCH
@@ -198,22 +180,21 @@
 
 %----------WORKING PAPERS-----------------
 \textbf{Working Papers}
-\resumeItemListStart
-\resumeItemPaper{\textbf{Chung J. S.}, Toh, P. K. Reshaping Human Interaction in Organizations: How Algorithms Automating Mundane Tasks Impact Humans’ Idea Generation on GitHub. (Under Review, \textit{Organization Science})} \href{https://dx.doi.org/10.2139/ssrn.6616418}{[SSRN]}
-\resumeItemPaper{Toh, P. K., \textbf{Chung, J. S.} Algorithm Learning: Benefits of Third-Party Human-Intermediaries’ Co-Existence with Algorithm on Platforms. (Manuscript Ready)}
+\resetPaperCounter
+
+\resumeItemPaper{\textbf{Chung J. S.}, Toh, P. K. Reshaping Human Interaction in Organizations: How Algorithms Automating Mundane Tasks Impact Humans' Idea Generation on GitHub. \href{https://dx.doi.org/10.2139/ssrn.6616418}{[SSRN]} (Under Review, \textit{Organization Science})}
+\resumeItemPaper{Toh, P. K., \textbf{Chung, J. S.} Algorithm Learning: Benefits of Third-Party Human-Intermediaries' Co-Existence with Algorithm on Platforms. (Manuscript Ready)}
 \resumeItemPaper{Agarwal S., Miller C. D., \textbf{Chung J. S.} Product Abandonment in Platform. (Writing and Data Analysis)}
-\resumeItemPaperWithMultipleSublines{\textbf{Chung, J. S.}, Toh, P. K. Competitive Crowding and Complementor Participation in Platform-Based Ecosystems: A Study of the Instagram Platform. (Manuscript Ready)} {{AOM Best Paper Proceedings (STR Division), Spring 2023}}
-\
-\resumeItemListEnd
+\resumeItemPaperWithMultipleSublines{\textbf{Chung, J. S.}, Toh, P. K. Competitive Crowding and Complementor Participation in Platform-Based Ecosystems: A Study of the Instagram Platform. (Manuscript Ready)}{{AOM Best Paper Proceedings (STR Division), Spring 2023}}
 
+\vspace{6pt}
 \textbf{Work-in-Progress}
+\resetPaperCounter
 
-\resumeItemListStart
 \resumeItemPaper{\textbf{Chung, J. S.}, Shen, X. Algorithm Evaluation and Idea Generation. (Data Analysis)}
 \resumeItemPaper{\textbf{Chung, J. S.}, Park, J., Pang, M. S. The Integration of Algorithms in Human Decision Making. (Data Analysis)}
 \resumeItemPaper{\textbf{Chung J. S.} A Practical Approach to Unveiling New Research Dimensions in the Study of Algorithms and Collaboration. (Writing)}
-\resumeItemPaperWithMultipleSublines{Polidoro, F., \textbf{Chung, J. S.} Strategies for Social Insertion into Collaboration Networks: Trade-offs Between Collaborative and Standalone Entries. (Writing and Data Analysis)} {{Runner-up, Best Proposal Award, SMS (Cooperative Strategies Interest Group), 2022}}
-\resumeItemListEnd
+\resumeItemPaperWithMultipleSublines{Polidoro, F., \textbf{Chung, J. S.} Strategies for Social Insertion into Collaboration Networks: Trade-offs Between Collaborative and Standalone Entries. (Writing and Data Analysis)}{{Runner-up, Best Proposal Award, SMS (Cooperative Strategies Interest Group), 2022}}
 
 %----------------------------------------------------------------------------------------
 %	CONFERENCES, INVITED TALKS, WORKSHOPS
@@ -221,117 +202,92 @@
 \section{Conferences, Invited Talks, Workshops}
 
 %----------PRESENTATIONS-----------------
-\textbf{Presentations}
-\resumeItemListStart
-\resumeItemPaperWithMultipleSublines{Reshaping Human Interaction in Organizations: How Algorithms Automating Mundane Tasks Impact Humans’ Idea Generation on GitHub.} 
-    {{Academy of Management 2026, Philadelphia, PA.},
-    {University of Wisconsin-Madison 2025.}, 
-    {The University of Hong Kong 2025.},
-    {The Chinese University of Hong Kong-Shenzhen 2025.},
-    {INFORMS 2025, Atlanta, GA.}, 
-    {CCC Doctoral Conference 2024, St. Louis, MO.}}
-\resumeItemPaperWithMultipleSublines{Algorithm Learning: Intermediary Tradeoff and Strategic Purpose of Having Influencers on Instagram.} 
-    {{Academy of Management 2024, Chicago, IL.}}
-\resumeItemPaperWithMultipleSublines{Competition-Based Network Effect and Heterogeneity in Participation Channels within Platform-Based Ecosystems.} 
-    {{Academy of Management 2023, Boston, MA.}, {Strategic Management Society 2022, London.}, {McCombs Annual PhD Research Conference 2022, Austin, TX.}}
-\resumeItemListEnd
+\textbf{Talks and Conferences}
+\vspace{2pt}
 
+\yearVenues{2026}{Academy of Management, Philadelphia, PA}
+\yearVenues{2025}{INFORMS, Atlanta, GA}
+\yearVenues{2024}{University of Wisconsin-Madison; 
+                    The University of Hong Kong; 
+                    The Chinese University of Hong Kong--Shenzhen;
+                    Academy of Management, Chicago, IL;
+                    CCC Doctoral Conference, St.\ Louis, MO}
+
+\yearVenues{2023}{Academy of Management, Boston, MA}
+
+\yearVenues{2022}{Strategic Management Society, London; McCombs Annual PhD Research Conference, Austin, TX}
+
+\vspace{6pt}
 %----------SYMPOSIA-----------------
 \textbf{Symposia}
-\resumeItemListStart
-\resumeItemPaper{Co-organizer, \textit{Predictive Technologies and Firm Innovation}. Academy of Management 2024, Chicago, IL.} 
-\resumeItemListEnd
+\vspace{2pt}
 
+\yearVenues{2024}{Co-organizer, \textit{Predictive Technologies and Firm Innovation}. Academy of Management, Chicago, IL}
+
+\vspace{6pt}
 %----------WORKSHOPS-----------------
 \textbf{Workshops}
-\resumeItemListStart
-\resumeItemPaper{Academy of Management TIM Doctoral Consortium 2024. Chicago, IL.} 
-\resumeItemPaper{Academy of Management STR Dissertation Consortium 2024. Chicago, IL.} 
-\resumeItemPaper{Annual Data Workshop and Empirical Research Conference on Standardization 2022. Northwestern Center on Law, Business and Economics.} 
-\resumeItemPaper{Strategy Science Doctoral Workshop and Conference 2022. NYU Stern School of Business.} 
-\resumeItemListEnd
+\vspace{2pt}
+
+\yearVenues{2024}{Academy of Management TIM Doctoral Consortium, Chicago, IL}
+\yearVenues{2024}{Academy of Management STR Dissertation Consortium, Chicago, IL}
+\yearVenues{2022}{Annual Data Workshop and Empirical Research Conference on Standardization, Northwestern Center on Law, Business and Economics}
+\yearVenues{2022}{Strategy Science Doctoral Workshop and Conference, NYU Stern School of Business}
 
 %----------------------------------------------------------------------------------------
-%	TEACHING 
+%	TEACHING
 %----------------------------------------------------------------------------------------
 \section{Teaching Experience}
 
 \resumeSubheading
-{Wisconsin School of Business, UW Madison}{2026-}
-{Strategic Management of Innovation (MBA)} {MHR 715}
+{Strategic Management of Innovation (MHR 715)}{2026--}
+{MBA, Wisconsin School of Business, UW Madison}{}
 \resumeSubheading
-{Wisconsin School of Business, UW Madison}{2026-}
-{Strategic Management of Innovation and Corporate Entrepreneurship} {MHR 415}
+{Strategic Management of Innovation and Corporate Entrepreneurship (MHR 415)}{2026--}
+{Undergraduate, Wisconsin School of Business, UW Madison}{}
 \resumeSubheading
-{McCombs School of Business, UT Austin}{2022}
-{General Management and Strategy} {MAN S374}
+{General Management and Strategy (MAN S374)}{2022}
+{Undergraduate, McCombs School of Business, UT Austin}{}
 
 %----------------------------------------------------------------------------------------
 %	AWARDS, GRANTS, SCHOLARSHIPS
 %----------------------------------------------------------------------------------------
 \section{Awards, Grants, Scholarships}
+\vspace{2pt}
 
-\resumeSubheading
-{Winner, Samsung Global Research Scholarship} {2024}
-{Association of Korean Management Scholars}{}
-\resumeSubheading
-{Graduate Continuing Bruton Fellowship} {2023}
-{University of Texas at Austin}{}
-\resumeSubheading
-{Runner-up, Best Proposal Award} {2022}
-{Strategic Management Society, Cooperative Strategies Interest Group}{}
-\resumeSubheading
-{Graduate School Summer Fellowship} {2022}
-{University of Texas at Austin}{}
-\resumeSubheading
-{McCombs-Provost PhD Research Fund} {2022}
-{University of Texas at Austin}{}
-\resumeSubheading
-{Northwestern CLBE Travel Grant} {2022}
-{Northwestern University}{}
-\resumeSubheading
-{McCombs School of Business Doctoral Fellowship} {2019–Present}
-{University of Texas at Austin}{}
-\resumeSubheading
-{Graduate School Connected Scholarship} {2017–2018}
-{Sungkyunkwan University}{}
-\resumeSubheading
-{Class Aid Scholarship} {2017–2018}
-{Sungkyunkwan University}{}
-\resumeSubheading
-{Dean's List (Undergraduate)} {2016–2017}
-{Sungkyunkwan University}{}
-\resumeSubheading
-{Patriot Scholarship (Undergraduate)} {2013–2016}
-{Ministry of Patriots and Veterans Affairs, Korea}{}
-\resumeSubheading
-{Samsung Scholarship (Undergraduate)} {2011–2012}
-{Samsung Foundation, Korea}{}
+\yearVenues{2024}{Winner, Samsung Global Research Scholarship, Association of Korean Management Scholars}
+\yearVenues{2023}{Graduate Continuing Bruton Fellowship, University of Texas at Austin}
+\yearVenues{2022}{Runner-up, Best Proposal Award, Strategic Management Society (Cooperative Strategies Interest Group)}
+\yearVenues{}{Graduate School Summer Fellowship, University of Texas at Austin}
+\yearVenues{}{McCombs-Provost PhD Research Fund, University of Texas at Austin}
+\yearVenues{}{Northwestern CLBE Travel Grant, Northwestern University}
+\yearVenues{2019--25}{McCombs School of Business Doctoral Fellowship, University of Texas at Austin}
+\yearVenues{2017--18}{Graduate School Connected Scholarship, Sungkyunkwan University}
+\yearVenues{}{Class Aid Scholarship, Sungkyunkwan University}
+\yearVenues{2016--17}{Dean's List (Undergraduate), Sungkyunkwan University}
+\yearVenues{2013--16}{Patriot Scholarship (Undergraduate), Ministry of Patriots and Veterans Affairs, Korea}
+\yearVenues{2011--12}{Samsung Scholarship (Undergraduate), Samsung Foundation, Korea}
 
 %----------------------------------------------------------------------------------------
 %	SERVICE
 %----------------------------------------------------------------------------------------
 \section{Service}
 
-\textbf{Ad hoc Reviewer}{: Strategic Management Journal}
-\\
-\textbf{Reviewer}{: Strategic Management Society, Academy of Management}
-\\
-\textbf{Membership}{: Strategic Management Society, Academy of Management}
+\textbf{Ad hoc Reviewer}{: Strategic Management Journal} \\
+\textbf{Reviewer}{: Strategic Management Society; Academy of Management} \\
+\textbf{Membership}{: Strategic Management Society; Academy of Management}
 
 %----------------------------------------------------------------------------------------
 %	SKILLS
 %----------------------------------------------------------------------------------------
 \section{Skills}
 
-\textbf{Programming Languages}{: Python, STATA, \LaTeX}
-\\
-\textbf{Visualization Tools}{: R, Gephi}
-\\
+\textbf{Programming Languages}{: Python, STATA, \LaTeX} \\
+\textbf{Visualization Tools}{: R, Gephi} \\
 \textbf{Database Management}{: MySQL, BigQuery}
 
 %----------------------------------------------------------------------------------------
-%	REFERENCES
+%	REFERENCES (commented out — uncomment when ready)
 %----------------------------------------------------------------------------------------
 % \section{References}
 % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l}
@@ -345,7 +301,7 @@
 %     Associate Professor & Assistant Professor \\
 %     Whitman School of Management & McCombs School of Business \\
 %     Syracuse University & University of Texas at Austin \\
-%     \href{mailto:cdmiller@syr.edu}{cdmiller@syr.edu} & 
+%     \href{mailto:cdmiller@syr.edu}{cdmiller@syr.edu} &
 %     \href{mailto:shiva.agarwal@mccombs.utexas.edu}{shiva.agarwal@mccombs.utexas.edu} \\
 %     \\
 %     \textbf{Martin Ganco} \\
@@ -355,5 +311,4 @@
 %     \href{mailto:ganco@wisc.edu}{ganco@wisc.edu}
 % \end{tabular*}
 
-%-------------------------------------------
 \end{document}
